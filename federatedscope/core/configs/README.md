@@ -351,7 +351,7 @@ These arguments are exposed for customizing our provided auto-tuning components.
 | Name | (Type) Default Value | Description                                | Note |
 |:----:|:--------------------:|:-------------------------------------------|:-----|
 | `hpo.fedex.use` |     (bool) False     | Whether to use FedEx.        | - |
-| `hpo.fedex.ss` |     (striing) ''     | Path of the .yaml specifying the search space to be explored.        | - |
+| `hpo.fedex.ss` |     (string) ''     | Path of the .yaml specifying the search space to be explored.        | - |
 | `hpo.fedex.flatten_ss` |     (bool) True     | Whether the search space has been flattened.        | - |
 | `hpo.fedex.eta0` |     (float) -1.0     | Initial learning rate.        | -1.0 means automatically determine the learning rate based on the size of search space. |
 | `hpo.fedex.sched` |     (string) 'auto' </br> Choices: {'auto', 'adaptive', 'aggressive', 'constant', 'scale' } | The strategy to update step sizes    | - |
