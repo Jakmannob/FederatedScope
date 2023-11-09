@@ -1,3 +1,7 @@
+# Exclude data and exp directories (datasets and experiment results
+data/
+exp/
+
 # project specific
 doc/build
 
