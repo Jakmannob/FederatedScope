@@ -215,7 +215,7 @@ RUN conda install -y pyg=2.0.4 -c pyg  \
     && conda clean -a -y
 # communications and auxiliaries
 RUN conda install -y wandb -c conda-forge \
-    && pip install grpcio grpcio-tools protobuf==3.19.4 setuptools==61.2.0  \
+    && pip install grpcio grpcio-tools protobuf==3.20 setuptools==61.2.0  \
     && conda clean -a -y
     
 USER ${NB_UID}

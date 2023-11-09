@@ -45,5 +45,5 @@ RUN conda install -y fvcore iopath -c fvcore -c iopath -c conda-forge \
 
 # auxiliaries (communications, monitoring, etc.)
 RUN conda install -y wandb tensorboard tensorboardX pympler -c conda-forge \
-    && pip install grpcio grpcio-tools protobuf==3.19.4 setuptools==61.2.0 \
+    && pip install grpcio grpcio-tools protobuf==3.20 setuptools==61.2.0 \
     && conda clean -a -y

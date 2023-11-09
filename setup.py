@@ -9,7 +9,7 @@ URL = 'https://github.com/alibaba/FederatedScope'
 minimal_requires = [
     'numpy<1.23.0', 'scikit-learn==1.0.2', 'scipy==1.7.3', 'pandas',
     'grpcio>=1.45.0', 'grpcio-tools', 'pyyaml>=5.1', 'fvcore', 'iopath',
-    'wandb', 'tensorboard', 'tensorboardX', 'pympler', 'protobuf==3.19.4',
+    'wandb', 'tensorboard', 'tensorboardX', 'pympler', 'protobuf==3.20',
     'matplotlib'
 ]
 

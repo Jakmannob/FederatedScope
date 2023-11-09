@@ -25,7 +25,7 @@ requirements:
     - iopath
     - numpy <1.23.0
     - pandas
-    - protobuf ==3.19.4
+    - protobuf ==3.20
     - pympler
     - python >=3.9
     - pyyaml >=5.1
