@@ -1,0 +1,179 @@
+asyn:
+  min_received_num: 1
+  min_received_rate: -1
+  time_budget: 3
+  use: true
+backend: torch
+criterion:
+  type: CrossEntropyLoss
+data:
+  root: data/
+  type: femnist
+  args: []
+  save_data: false
+  splitter: ''
+  splitter_args: []
+  transform:
+  - - ToTensor
+    - {}
+  - - Normalize
+    - mean:
+      - 0.1307
+      std:
+      - 0.3081
+  target_transform: []
+  pre_transform: []
+  drop_last: false
+  sizes:
+  - 10
+  - 5
+  shuffle: true
+  subsample: 0.05
+  splits:
+  - 0.6
+  - 0.2
+  - 0.2
+  cSBM_phi:
+  - 0.5
+  - 0.5
+  - 0.5
+  loader: ''
+  num_workers: 0
+  num_steps: 30
+  walk_length: 2
+dataloader:
+  batch_size: 32
+device: -1
+distribute:
+  use: false
+early_stop:
+  patience: 3
+  delta: 0
+  improve_indicator_mode: best
+eval:
+  freq: 10
+  metrics:
+  - acc
+  - correct
+  report:
+  - weighted_avg
+  - avg
+  - fairness
+  - raw
+  split:
+  - test
+  - val
+  best_res_update_round_wise_key: val_loss
+  monitoring: []
+expname: FedAvg_convnet2_on_femnist_lr0.1_lstep1_finetune
+expname_tag: finetune
+federate:
+  client_num: 200
+  sample_client_num: 32
+  unseen_clients_rate: 0.2
+  total_round_num: 1000
+  mode: standalone
+  share_local_model: false
+  data_weighted_aggr: false
+  online_aggr: false
+  make_global_eval: false
+  method: FedAvg
+  ignore_weight: false
+  use_ss: false
+  restore_from: ''
+  save_to: ''
+  join_in_info: []
+fedopt:
+  use: false
+fedprox:
+  use: false
+fedsageplus:
+  num_pred: 5
+  gen_hidden: 128
+  hide_portion: 0.5
+  fedgen_epoch: 200
+  loc_epoch: 1
+  a: 1.
+  b: 1.
+  c: 1.
+finetune:
+  local_update_steps: 1
+  batch_or_epoch: batch
+  before_eval: true
+  optimizer:
+    type: SGD
+    lr: 0.01
+    momentum: 0
+    weight_decay: 0
+gcflplus:
+  EPS_1: 0.05
+  EPS_2: 0.1
+  seq_length: 5
+  standardize: false
+grad:
+  grad_clip: 5
+hpo:
+  working_folder: hpo
+  fedex:
+    use: false
+    ss: ''
+    flatten_ss: true
+    sched: auto
+    cutoff: 0
+    gamma: 0
+    diff: false
+  init_cand_num: 16
+  larger_better: false
+  scheduler: sha
+  metric: client_summarized_weighted_avg.test_loss
+  sha:
+    elim_rate: 3
+    budgets: []
+model:
+  model_num_per_trainer: 1
+  type: convnet2
+  use_bias: true
+  task: node
+  hidden: 2048
+  dropout: 0
+  in_channels: 0
+  out_channels: 62
+  layer: 2
+  graph_pooling: mean
+  embed_size: 8
+  num_item: 0
+  num_user: 0
+nbafl:
+  use: false
+outdir: exp_pfl_bench/FedAvg_convnet2_on_femnist_lr0.1_lstep1_finetune
+personalization:
+  local_param: []
+  share_non_trainable_para: false
+  local_update_steps: 1
+  regular_weight: 0.1
+  lr: 0.01
+  K: 5
+  beta: 1
+regularizer:
+  mu: 0
+  type: ''
+seed: 1
+sgdmf:
+  use: false
+train:
+  batch_or_epoch: batch
+  local_update_steps: 1
+  optimizer:
+    type: SGD
+    lr: 0.1
+    momentum: 0
+    weight_decay: 0
+use_gpu: true
+verbose: 1
+vertical:
+  use: false
+wandb:
+  use: true
+  name_user: daoyuan
+  name_project: pFL-bench
+  online_track: true
