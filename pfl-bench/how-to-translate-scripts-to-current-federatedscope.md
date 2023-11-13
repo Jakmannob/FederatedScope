@@ -28,6 +28,12 @@ The example configs in the `yaml_best_runs_example` folder in the current versio
 ### `cfg.federate.local_update_steps`
 - Somehow, `local_update_steps` is set twice, one time directly in the lowest indentation, with `federate.local_update_steps`. Remove this also.
 
+## `cfg.fedopt`
+- `cfg.fedopt` now has an `optimizer` subsection and therefore, `cfg.fedopt.lr_server` is moved to `cfg.fedopt.optimizer.lr`, and `cfg.fedopt.type_optimizer` is moved to `cfg.fedopt.optimizer.type`.
+
+### `cfg.fedopt.lr_server`
+- Somehow, `lr_server` is set twice, one time directly in the lowest indentation, with `fedopt.lr_server`. Remove this also.
+
 ## `cfg.fedsageplus`
 - `cfg.fedsageplus.[a-c]` were changed from `int` to `float`. Adjust by setting to `1.` instead of `1`.
 
@@ -55,7 +61,11 @@ The example configs in the `yaml_best_runs_example` folder in the current versio
 ### `cfg.optimizer.lr`
 - Somehow, `lr` is set twice, one time directly in the lowest indentation, with `optimizer.lr`. Remove this also.
 
-## `cfg.personalization.regular_weight`
+## `cfg.personalization`
+- If `apfl_alpha` is set, it should be removed.
+- [ ] How is [APFL](https://arxiv.org/abs/2003.13461) implemented in newer versions of FederatedScope? Was it removed?
+
+### `cfg.personalization.regular_weight`
 - Somehow, `regular_weight` is set twice, one time directly in the lowest indentation, with `personalization.regular_weight`. Remove this also.
 
 ## `cfg.trainer`

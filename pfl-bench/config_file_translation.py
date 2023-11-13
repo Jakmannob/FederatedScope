@@ -73,6 +73,19 @@ class ConfigFileTranslator():
                 config['federate']:
                 config['federate'].pop('sample_client_rate')
 
+        if 'fedopt' in config:
+            if not 'optimizer' in config['fedopt']:
+                config['fedopt']['optimizer'] = dict()
+            if 'lr_server' in config['fedopt']:
+                config['fedopt']['optimizer']['lr'] = config['fedopt'].\
+                    pop('lr_server')
+            if 'type_optimizer' in config['fedopt']:
+                config['fedopt']['optimizer']['type'] = config['fedopt'].\
+                    pop('type_optimizer')
+
+        if 'fedopt.lr_server' in config:
+            config.pop('fedopt.lr_server')
+
         if 'federate.local_update_steps' in config:
             config.pop('federate.local_update_steps')
 
@@ -109,6 +122,10 @@ class ConfigFileTranslator():
 
         if 'optimizer.lr' in config:
             config.pop('optimizer.lr')
+
+        if 'personalization' in config:
+            if 'apfl_alpha' in config['personalization']:
+                config['personalization'].pop('apfl_alpha')
 
         if 'personalization.regular_weight' in config:
             config.pop('personalization.regular_weight')
