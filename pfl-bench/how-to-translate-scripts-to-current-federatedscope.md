@@ -25,6 +25,9 @@ The example configs in the `yaml_best_runs_example` folder in the current versio
 - `cfg.federate.local_update_steps` was moved to `cfg.finetune.batch_or_epoch` and `cfg.train.batch_or_epoch`. Remove from `cfg.federate` and place in `cfg.finetune` and `cfg.train`.
 - `cfg.federate.sample_client_rate` and `cfg.federate.sample_client_num` should not both be specified at the same time. Decide on one (I decide on `cfg.federate.sample_client_num`).
 
+### `cfg.federate.local_update_steps`
+- Somehow, `local_update_steps` is set twice, one time directly in the lowest indentation, with `federate.local_update_steps`. Remove this also.
+
 ## `cfg.fedsageplus`
 - `cfg.fedsageplus.[a-c]` were changed from `int` to `float`. Adjust by setting to `1.` instead of `1`.
 
@@ -49,9 +52,16 @@ The example configs in the `yaml_best_runs_example` folder in the current versio
 - `cfg.optimizer` was moved one layer down. Move it and all of its childs to `cfg.train` and `cfg.finetune`.
 - `cfg.optimizer.grad_clip` was moved to `cfg.grad.grad_clip`.
 
+### `cfg.optimizer.lr`
+- Somehow, `lr` is set twice, one time directly in the lowest indentation, with `optimizer.lr`. Remove this also.
+
+## `cfg.personalization.regular_weight`
+- Somehow, `regular_weight` is set twice, one time directly in the lowest indentation, with `personalization.regular_weight`. Remove this also.
+
 ## `cfg.trainer`
 - `cfg.trainer` was removed.
 - `cfg.trainer.finetune.freeze_param` was removed. Delete the field.
 - `cfg.trainer.finetune.lr` was moved to `cfg.finetune.optimizer.lr`. Move the field.
-- `cfg.trainer.finetune.steps` was removed. Remove the field.
+- `cfg.trainer.finetune.before_eval` was moved to `cfg.finetune.before_eval`. Move the field.
+- `cfg.trainer.finetune.steps` was moved to `cfg.finetune.local_update_steps`. Move the field.
 - `cfg.trainer.type` was removed. The type is assigned automatically now (or at least that's what I think...). Remove the field.
